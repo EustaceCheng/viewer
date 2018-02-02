@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<!--leaflet plugim-->
+    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet/leaflet.draw.js"></script>
+    <script src="leaflet/leaflet-iiif.js"></script>
+    <script src="leaflet/leaflet.label.js"></script> 
+    <script src="leaflet/leaflet.zoomhome.min.js"></script>
+    <link rel="stylesheet" href="leaflet/leaflet.zoomhome.css"/>
+    <link rel="stylesheet" href="leaflet/leaflet.label.css">
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="leaflet/leaflet.draw.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <script src="d3/d3.min.js"></script>
+    <!--external plugim-->
+	<script src="js/jquery-3.1.0.js"></script>
+    <!--self plugim-->
+	<link rel="stylesheet" href="test.css">
+	<script src="test.js"></script>
+</head>
+<body>
+	<div  class="iiif-viewer" data-url="https://cyberisland.teldap.tw/album/zHxo/manifest"></div>
+    <br>
+   
+    <button class='reset'>reset</button>
+    <button class='rotation' value='270'><i class="fa fa-undo" aria-hidden="true"></i></button>
+    <button class='rotation' value='90'><i class="fa fa-repeat" aria-hidden="true"></i></button>
+    <script>$('.iiif-viewer').work();</script>
+    
+</body>
+</html>
