@@ -2,4 +2,4 @@
 
 Add parame 'manifest' a iiif-manifest-url
 
-It can rotate iiif image by iiif image api
+-中研院實習部分內容
