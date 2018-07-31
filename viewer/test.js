@@ -5,7 +5,9 @@
         var manifest = {};
         var href = window.location.href;
         var manifestarr = URLToArray(href);
-        var url = manifestarr['manifest'];
+		var defaulturl = $('.iiif-viewer').attr('data-url');
+        var url = (manifestarr['manifest']==undefined)?defaulturl:manifestarr['manifest'];
+		
         _this.attr('id','main');
         var elem = '#main';        
         var map;        
@@ -50,9 +52,9 @@
                 crs: L.CRS.Simple,
                 center: [0, 0],               
                 zoom: 18,
-                attributionControl:false, //leaflet logo cancel
+                attributionControl:false, //if false, leaflet logo cancel
                 zoomControl: false,
-                zoomSnap:0.001
+                zoomSnap:0.001// if 0.001, img fit side
             });          
             
             backgroundLabel();

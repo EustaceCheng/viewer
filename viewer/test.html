@@ -20,13 +20,22 @@
 	<script src="test.js"></script>
 </head>
 <body>
-	<div  class="iiif-viewer" data-url="https://cyberisland.teldap.tw/album/zHxo/manifest"></div>
+	<div  class="iiif-viewer" data-url="https://media.nga.gov/public/manifests/nga_highlights.json"></div>
     <br>
-   
+    <input id="txt" type="text" name="manifest" placeholder="輸入manifest url">
+	<button class='changeManifest'>GO</button><br>
     <button class='reset'>reset</button>
     <button class='rotation' value='270'><i class="fa fa-undo" aria-hidden="true"></i></button>
     <button class='rotation' value='90'><i class="fa fa-repeat" aria-hidden="true"></i></button>
+   <a href="https://github.com/ProjectMirador/mirador/blob/develop/index.html#L29">畫布來源</a>
     <script>$('.iiif-viewer').work();</script>
-    
+	<script>$('.changeManifest').click(function(){
+		var txt = $('#txt').val();
+		var str = window.location.href;
+		var res = str.substring(0,str.indexOf('?'))
+		window.location.href = res+'?manifest='+txt;
+
+		//alert(txt);
+	});</script>
 </body>
 </html>

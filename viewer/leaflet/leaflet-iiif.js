@@ -88,7 +88,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
       quality: _this.quality,
       region: [minx, miny, xDiff, yDiff].join(','),
       rotation: 0,
-      size: Math.ceil(xDiff / scale) + ','
+      size: Math.ceil(xDiff / scale)+1 + ','// if zoomsnap = 0.001, +1px for aviod black line
     }, this.options));
   },
   onAdd: function(map) {
