@@ -206,7 +206,10 @@
                     data = response;
                 },
                 error: function(xhr, status, error) {
-                    console.log("xhr:" + xhr + '\n' + "status:" + status + '\n' + "error:" + error);
+                   
+					var str = window.location.href;
+					var res = str.substring(0,str.indexOf('?'))
+					window.location.href = res;
                 }
             });
             return data;

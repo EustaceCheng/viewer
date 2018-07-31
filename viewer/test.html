@@ -27,15 +27,36 @@
     <button class='reset'>reset</button>
     <button class='rotation' value='270'><i class="fa fa-undo" aria-hidden="true"></i></button>
     <button class='rotation' value='90'><i class="fa fa-repeat" aria-hidden="true"></i></button>
-   <a href="https://github.com/ProjectMirador/mirador/blob/develop/index.html#L29">畫布來源</a>
+	</br>
+	<h3>Harvard University</h3>
+	<a class="linkTo" target="https://iiif.lib.harvard.edu/manifests/drs:48309543">來源1</a>
+	<a class="linkTo" target="https://iiif.lib.harvard.edu/manifests/drs:5981093">來源2</a>
+	<a class="linkTo" target="https://iiif.lib.harvard.edu/manifests/drs:14033171">來源3</a>
+	<h3>Stanford University</h3>
+	<a class="linkTo" target="https://purl.stanford.edu/qm670kv1873/iiif/manifest">來源1</a>
+	<a class="linkTo" target="https://purl.stanford.edu/jr903ng8662/iiif/manifest">來源2</a>
+	<a class="linkTo" target="http://dms-data.stanford.edu/data/manifests/Stanford/ege1/manifest.json">來源3</a>
+	<h3>Yale Center For British Art</h3>
+	<a class="linkTo" target="https://manifests.britishart.yale.edu/manifest/5005">來源1</a>
+	<a class="linkTo" target="https://manifests.britishart.yale.edu/manifest/1474">來源2</a>
+	<h3>Bodleian Libraries</h3>
+	<a class="linkTo" target="http://iiif.bodleian.ox.ac.uk/iiif/manifest/f19aeaf9-5aba-4cee-be32-584663ff1ef1.json">來源1</a>
+    <a class="linkTo" target="http://iiif.bodleian.ox.ac.uk/iiif/manifest/3b31c0a9-3dab-4801-b3dc-f2a3e3786d34.json">來源2</a>
+	<a class="linkTo" target="http://iiif.bodleian.ox.ac.uk/iiif/manifest/e32a277e-91e2-4a6d-8ba6-cc4bad230410.json">來源3</a>
     <script>$('.iiif-viewer').work();</script>
 	<script>$('.changeManifest').click(function(){
 		var txt = $('#txt').val();
 		var str = window.location.href;
 		var res = str.substring(0,str.indexOf('?'))
 		window.location.href = res+'?manifest='+txt;
-
-		//alert(txt);
+	});</script>
+	<script>
+	$('.linkTo').unbind("click");
+	$('.linkTo').click(function(){
+		var txt = this.target;
+		var str = window.location.href;
+		var res = str.substring(0,str.indexOf('?'))
+		window.location.href = res+'?manifest='+txt;
 	});</script>
 </body>
 </html>
