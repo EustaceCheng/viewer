@@ -15,7 +15,7 @@
         var data = GetJSON(url);
         manifest.element = elem; 
         manifest.canvasArray = []; 
-        manifest.index = 4; 
+        manifest.index = 1; 
         manifest.currenCanvas; 
         manifest.leaflet; 
         manifest.canvasArray = data.sequences[0].canvases;            
@@ -27,6 +27,47 @@
         var drawnItems;
         var zoomtemp;
         var annoArray;
+		
+		function add_chose_button(){
+			var div = $('<div class= "leaflet-control-layers leaflet-control" style="padding-top: 5px;"></div>');
+			var left = $('<div class="leaflet-control-layers-base canvasBtn" ><span class="fa fa-chevron-left fa-2x" aria-hidden="true"> </span></div>');
+			var input =  $('<div class="leaflet-control-layers-base canvasPage"><span></span></div>');
+			var right = $('<div class="leaflet-control-layers-base canvasBtn" ><span class="fa fa-chevron-right fa-2x" aria-hidden="true"> </span></div>');
+			var separatorL = $('<div class="vertical_separator" ></div>');
+			var separatorR = $('<div class="vertical_separator"></div>');
+			div.append(left,separatorL,input,separatorR,right);
+			$($('.leaflet-bottom.leaflet-right')[0]).prepend(div);
+			$($(input)[0]).html(manifest.index + '/'+ manifest.canvasArray.length );
+			
+			// right.bind('click',function(e){
+				// e.preventDefault();
+				// if( manifest.index +1 <= manifest.canvasArray.length){
+					// manifest.index = manifest.index+1 ;
+					// change();
+				// }else{alert('Out of Range');}
+			// })
+			right.click(function(){				
+				if( manifest.index +1 <= manifest.canvasArray.length){
+					manifest.index = manifest.index+1 ;
+					change();
+				}else{alert('Out of Range');}
+			});
+			left.click(function(){
+				if(manifest.index-1 >= 1){
+					
+					manifest.index = manifest.index-1; 
+					change();
+				}else{alert('Out of Range');}
+			});
+		};
+		
+		function change(){
+			manifest.leaflet.remove();
+		    manifest.currenCanvas = manifest.canvasArray[manifest.index-1];
+            manifest.leaflet = leafletMap(manifest.currenCanvas,manifest.rotation);
+          
+		}	
+  
         /*create leaflet map*/
         function leafletMap(canvas,rotation=0) {
             viewer_offset = $(_this).offset();
@@ -59,6 +100,7 @@
             
             backgroundLabel();
             clickEventLabel();
+			add_chose_button();
             L.tileLayer.iiif(url,{                
                 setFullZoom:false,
                 setMaxBounds:true,

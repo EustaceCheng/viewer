@@ -2764,8 +2764,10 @@ function setPosition(el, point) {
 function getPosition(el) {
 	// this method is only used for elements previously positioned using setPosition,
 	// so it's safe to cache the position for performance
-
-	return el._leaflet_pos || new Point(0, 0);
+	if(el)
+		return el._leaflet_pos || new Point(0, 0);
+	else
+		return new Point(0, 0);
 }
 
 // @function disableTextSelection()
