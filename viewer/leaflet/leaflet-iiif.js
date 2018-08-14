@@ -54,33 +54,28 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     var xDiff = (maxx - minx);
     var yDiff = (maxy - miny);
 
- 
+    //rotation for 90、180、270 degree
     if(_this.options.rotation == 180){
         minx = _this.x - (xDiff+minx);
         miny = _this.y - (yDiff+miny);   
     }else if(_this.options.rotation == 90){
-        t =minx;
+        t = minx;
         minx = miny;
-        miny=t;       
-        t=xDiff;
-        xDiff=yDiff;
-        yDiff=t;
+        miny = t;       
+        t = xDiff;
+        xDiff = yDiff;
+        yDiff = t;
         miny = _this.x - (yDiff+miny);
     }else if(_this.options.rotation == 270){
-        t =minx;
+        t = minx;
         minx = miny;
-        miny=t; 
-        t=xDiff;
-        xDiff=yDiff;
-        yDiff=t;
-        minx = _this.y - (xDiff+minx);
-         
+        miny = t; 
+        t = xDiff;
+        xDiff = yDiff;
+        yDiff = t;
+        minx = _this.y - (xDiff+minx);         
     }
     
-    
-    
-    
-    //console.log(x,y,tileBaseSize,maxx ,maxy,'|',minx, miny,xDiff, yDiff);
     
     
     return L.Util.template(this._baseUrl, L.extend({
