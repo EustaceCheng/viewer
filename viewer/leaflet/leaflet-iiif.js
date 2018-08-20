@@ -56,23 +56,15 @@ L.TileLayer.Iiif = L.TileLayer.extend({
 
     //rotation for 90、180、270 degree
     if(_this.options.rotation == 180){
-        minx = _this.x - (xDiff+minx);
-        miny = _this.y - (yDiff+miny);   
+        minx = _this.x - maxx;
+        miny = _this.y - maxy;   
     }else if(_this.options.rotation == 90){
-        t = minx;
-        minx = miny;
-        miny = t;       
-        t = xDiff;
-        xDiff = yDiff;
-        yDiff = t;
+		miny=minx+(minx=miny)-miny; //swap minx & miny
+		yDiff=xDiff+(xDiff=yDiff)-yDiff;//swap xDiff & yDiff
         miny = _this.x - (yDiff+miny);
     }else if(_this.options.rotation == 270){
-        t = minx;
-        minx = miny;
-        miny = t; 
-        t = xDiff;
-        xDiff = yDiff;
-        yDiff = t;
+		miny=minx+(minx=miny)-miny; //swap minx & miny
+		yDiff=xDiff+(xDiff=yDiff)-yDiff;//swap xDiff & yDiff
         minx = _this.y - (xDiff+minx);         
     }
     
@@ -212,10 +204,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
           _this.maxZoom = _this.maxNativeZoom;
         }
         if(_this.options.rotation == 90||_this.options.rotation == 270){
-            var t = _this.x;
-            _this.x = _this.y;
-            _this.y = t;
-            
+			_this.y=_this.x+(_this.x=_this.y)-_this.y;//swap _this.x & _this.y
         }
         for (var i = 0; i <= _this.maxZoom; i++) {
           scale = Math.pow(2, _this.maxNativeZoom - i);
