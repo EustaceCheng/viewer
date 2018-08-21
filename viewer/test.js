@@ -39,13 +39,7 @@
 			$($('.leaflet-bottom.leaflet-right')[0]).prepend(div);
 			$($(input)[0]).html(manifest.index + '/'+ manifest.canvasArray.length );
 			
-			// right.bind('click',function(e){
-				// e.preventDefault();
-				// if( manifest.index +1 <= manifest.canvasArray.length){
-					// manifest.index = manifest.index+1 ;
-					// change();
-				// }else{alert('Out of Range');}
-			// })
+		
 			right.click(function(){				
 				if( manifest.index +1 <= manifest.canvasArray.length){
 					manifest.index = manifest.index+1 ;
@@ -76,11 +70,7 @@
             var data = GetJSON(url);      
             var canvasSize ={height:canvas.height,width:canvas.width};
             annoArray = [];
-            for (zoomtemp = 0; zoomtemp < 18; zoomtemp++) {
-                if (Math.max(canvas.height, canvas.width) < 256 * Math.pow(2, zoomtemp)) {
-                    break;
-                }
-            }
+            
             var w_t = (rotation == 0 || rotation == 180)?Math.max(winSize.x, winSize.y) :Math.min(winSize.x, winSize.y) ;
             var zoomhome;
             for (zoomhome = 0; zoomhome < 18; zoomhome+=0.001) {
@@ -107,7 +97,11 @@
                 rotation:rotation
             }).addTo(map);
             
-            
+            for (zoomtemp = 0; zoomtemp < 18; zoomtemp++) {
+                if (Math.max(canvas.height, canvas.width) < 256 * Math.pow(2, zoomtemp)) {
+                    break;
+                }
+            }
             var zoomHome = L.Control.zoomHome({homeCoordinates:L.latLng([0,0]),homeZoom:zoomhome});
                 zoomHome.addTo(map);
             drawnItems = L.featureGroup().addTo(map);
@@ -183,8 +177,8 @@
                 '<div class="annoClickInnerUp" style="background-color:' + colorArray[i * 3 % 241] + ';"></div>'+
                                         '<div class="annoClickInnerDown">'+
                                         '<div>'+chars+'</div>'+
-                                        '<div class="annoClickMetadata">'+value.metadata[0].value+'</div>'+
-                                        '<div class="annoClickMetadata">'+value.metadata[1].value[1]['@value']+'</div>'+
+                                        '<div class="annoClickMetadata">'+((value.metadata)?value.metadata[0].value:"")+'</div>'+
+                                        '<div class="annoClickMetadata">'+((value.metadata)?value.metadata[1].value[1]['@value']:"")+'</div>'+
                                         '</div>'+
                                      '</div>';
                 var clickEventPane = $(annoClickStr);                   
@@ -216,9 +210,9 @@
                 minPoint.y = canvasSize.width - maxPoint.x ;
                 maxPoint.x = y;
                 maxPoint.y = canvasSize.width - x;
-            }            
-            var min = map.unproject(minPoint, zoomtemp);
-            var max = map.unproject(maxPoint, zoomtemp);            
+            }          	
+            var min = map.unproject(minPoint, zoomtemp-2);
+            var max = map.unproject(maxPoint, zoomtemp-2);            
             var point = {'min': min,'max': max};
             return point;
         }
