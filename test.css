@@ -1,0 +1,345 @@
+#labelClose{
+	color: 				white;	
+	background-color:	black;
+	padding-top: 		1px;
+	padding-bottom: 	1px;
+	padding-right: 		5px;
+	padding-left: 		5px;
+	border-radius:		35px;
+	box-shadow:			5px 5px 5px rgba(140,140,140, 0.4);
+	position:			absolute;
+	top:				5px;
+	right:				5px;
+	-moz-user-select:	none;
+	cursor:				pointer;
+}
+
+.tip{
+  padding:				15px;
+  box-shadow:			5px 5px 5px rgba(140,140,140, 0.4);
+  border-radius:		15px 0px 0px 15px;
+  cursor:				pointer;
+  opacity:				0.8;
+  padding-top:			5px;
+  padding-bottom:		5px;
+  min-width: 			123px;
+  white-space : 		nowrap;
+  z-index:				888;
+}
+.tipTitle{
+  padding:				15px;
+  border-radius:		0px 15px 15px 0px;
+  box-shadow:			5px 5px 5px rgba(140,140,140, 0.3);
+  padding-top:			5px;
+  padding-bottom:		5px;
+  min-width: 			15px;
+  max-width: 			15px;
+  text-overflow : 		ellipsis;
+  white-space : 		nowrap;
+  background-color:  	black;
+  z-index:				888;
+  opacity:				0.8;
+  color:				white;	
+  overflow:				hidden;	
+  cursor:				pointer;	
+
+}
+.tipbox{
+	margin:				10px;
+}
+
+#backgroundLabel{	
+	position:			absolute;
+	border-radius:		10px;
+	background-color:	rgba(255,255,255, 0);
+	padding:			10px;
+	padding-right:		15px;
+	padding-top:		15px;
+	opacity:			1;
+	transition:			all 0.8s ease-out;
+	min-width:			100px;
+	max-width:			200px;
+	color:				white;
+	z-index:			888;
+	word-wrap:			break-word;
+}
+#clickEventLabel{
+    position:			absolute;
+	border-radius:		10px;
+	background-color:	rgba(255,255,255, 0);
+	padding:			10px;
+	padding-right:		15px;
+	padding-top:		15px;
+	opacity:			1;
+	transition:			all 0.8s ease-out;
+	min-width:			100px;
+	max-width:			200px;
+	color:				white;
+	z-index:			888;
+	word-wrap:			break-word;
+}
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    padding-left:1px;
+    opacity:0.9;
+
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: #ffffff;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    min-width:86px;
+    max-width:99px;
+    min-height:30px;
+    max-height:100px;
+    transition: 0.3s;
+    color:#000000;    
+  	border-radius:15px 15px 15px 15px;  	
+  	box-shadow:5px 5px 5px rgba(140,140,140, 0.1);
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  	border-radius:15px 15px 15px 15px;  	
+    background-color: #ccc;
+    color:#000000; 
+  	box-shadow:5px 5px 5px rgba(140,140,140, 0.1);
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+     -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    
+    width:210px;
+
+}
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+.metadataLabel{
+    background-color:blanchedalmond;
+    padding:				7px;
+    border-radius:		5px 5px 5px 5px;
+    cursor:				pointer;	
+    float:left;
+    margin:5px;
+    width:80px;
+    height:33px;
+}
+.metadataValue{
+    background-color:beige;
+    padding:				7px;
+    border-radius:		5px 5px 5px 5px;
+    float:left;
+    margin:5px;
+    width:80px;
+    height:33px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap; 
+
+}
+
+.canvasPage {
+    float:left;
+    text-align: center;
+    min-width:26px;
+    font-size: 16px; 
+}
+
+	
+.iiif-viewer{
+    height: 100%;
+    width : 100%;
+}
+.mapid {
+    height: 480px;
+    width : 600px ;
+}
+.leaflet-container {
+    background: black;
+}
+.fa-info-circle{
+    position:absolute;
+    color:#def;
+    z-index:999;
+	cursor:pointer;
+    width:30px;
+    height:30px;
+}
+.fa-3x {
+    font-size: 2.5em;
+}
+.list-group{
+    height: 500px;
+    background: #F5F5F5;
+    width: 600px;
+    display:none;
+    right:3%;
+    position:absolute;
+    z-index:999;
+    font-size:18px;
+    word-wrap: break-word;
+   
+    border-radius: 23px;
+}
+
+.leaflet-top{
+    top: 5%;
+} 
+.leaflet-left{
+    left: 10%;
+}
+.leaflet-right{
+    right: 10%;
+}
+.leaflet-bottom{
+    bottom:10%
+}
+#infoClose{
+    color: 				black;	
+	border-radius: 35px;
+    position: absolute;
+    top: 3%;
+    right: 11%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*
+ *  STYLE 1
+ */
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+.scrollbar
+{
+    margin-left: 38px;
+    margin-top: 12px;
+    float: left;
+    height: 480px;
+    width: 547px;
+    background: #F5F5F5;
+    overflow-y: scroll;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}
+.annoClickInnerUp{
+    background: #f7e5f0;
+    width: 240px;
+    height: 10px;
+    border-radius: 12px 12px 0px 0px;
+    color: white;
+    /* margin: 10px; */
+    padding: 10px;
+
+}
+.annoClickInnerDown{
+    background: black;
+    width: 240px;
+    border-radius: 0px 0px 12px 12px;
+    color: white;
+    padding: 10px;
+
+}
+.annoClickMetadata{
+width: 240px;
+text-align:right;
+
+}
+
+.blankLine{
+    height:15px;
+}
+
+/** next previous button css  **/
+	.canvasBtn { float:left;width:26px;height:26px;text-align: center;cursor: pointer; }
+	.canvasPage {float:left;text-align: center;min-width:26px;font-size: 16px; }
+	.vertical_separator{float:left;border-left: 1px solid #ddd;height: 31px;width: 1px;margin-top: -5px;}
+	button, .button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #008CBA;
+    border-color: #007095;
+    color: #FFFFFF;
+    transition: background-color 300ms ease-out;
+	
+	border-radius: 35px;
+	
+	}
+	
+input{
+	border-radius: 35px;
+    height: 26px;
+    width: 404px;
+	padding:0px 10px 0px 10px;
+}
+.linkTo{
+	color:blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
